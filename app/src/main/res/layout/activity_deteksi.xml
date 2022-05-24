@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/view_image_deteksi"
-        android:src="@drawable/hispa"
+        android:src="@drawable/healthy"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,28 +41,17 @@
         android:text="Galeri"
         android:textSize="18sp"
         />
-    <Button
-        android:id="@+id/deteksi_gambar"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/button_kamera"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="35dp"
-        android:text="Lakukan Deteksi"
-        android:textSize="18sp"
-        />
     <TextView
         android:id="@+id/text_deteksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/deteksi_gambar"
+        app:layout_constraintTop_toBottomOf="@id/button_galeri"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Penyakit"
+        android:text="Pilih Gambar"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -82,6 +71,7 @@
         android:textSize="15sp"
         android:textColor="@color/Black"
         android:justificationMode="inter_word"
+        android:visibility="invisible"
         />
 
 

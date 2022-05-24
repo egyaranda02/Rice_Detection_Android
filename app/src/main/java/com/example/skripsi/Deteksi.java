@@ -28,6 +28,7 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.Arrays;
 
 public class Deteksi extends AppCompatActivity implements View.OnClickListener {
@@ -45,13 +46,11 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
 
         button_kamera = (Button)findViewById(R.id.button_kamera);
         button_galeri = (Button)findViewById(R.id.button_galeri);
-        button_deteksi = (Button)findViewById(R.id.deteksi_gambar);
         title = (TextView)findViewById(R.id.text_deteksi);
         description = (TextView)findViewById(R.id.text_deteksi_deskripsi);
 
         button_kamera.setOnClickListener(this);
         button_galeri.setOnClickListener(this);
-        button_deteksi.setOnClickListener(this);
 
     }
 
@@ -63,13 +62,6 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.button_kamera:
                 pickImageFromKamera();
-                break;
-            case R.id.deteksi_gambar:
-                ImageView imageCapture = (ImageView)findViewById(R.id.view_image_deteksi);
-                imageCapture.buildDrawingCache();
-                Bitmap bmap = imageCapture.getDrawingCache();
-                Bitmap resized = Bitmap.createScaledBitmap(bmap, 224, 224, true);
-                MLModel(resized);
                 break;
         }
     }
@@ -93,6 +85,8 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             int dimension = Math.min(captureImage.getWidth(), captureImage.getHeight());
             captureImage = ThumbnailUtils.extractThumbnail(captureImage, dimension, dimension);
             Binding.viewImageDeteksi.setImageBitmap(captureImage);
+            Bitmap resized = Bitmap.createScaledBitmap(captureImage, 224, 224, true);
+            MLModel(resized);
         }
         if (requestCode == 101) {
 
@@ -106,6 +100,8 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             int dimension = Math.min(bitmap.getWidth(), bitmap.getHeight());
             bitmap = ThumbnailUtils.extractThumbnail(bitmap, dimension, dimension);
             Binding.viewImageDeteksi.setImageBitmap(bitmap);
+            Bitmap resized = Bitmap.createScaledBitmap(bitmap, 224, 224, true);
+            MLModel(resized);
         }
     }
 
@@ -119,6 +115,23 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
             tensorImage.load(image);
             ByteBuffer byteBuffer = tensorImage.getBuffer();
+//            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * 224 * 224 * 3);
+//            byteBuffer.order(ByteOrder.nativeOrder());
+//
+//            int [] intValues = new int[224 * 224];
+//            image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
+//
+//            int pixel = 0;
+//            //iterate over each pixel and extract R, G, and B values. Add those values individually to the byte buffer.
+//            for(int i = 0; i < 224; i ++){
+//                for(int j = 0; j < 224; j++){
+//                    int val = intValues[pixel++]; // RGB
+//                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
+//                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
+//                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
+//                }
+//            }
+
 
             inputFeature0.loadBuffer(byteBuffer);
 
@@ -140,22 +153,30 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
                     index = i;
                 }
             }
-            Log.d("message", "Array:" + Arrays.toString(confidences));
-            String[] label = {"BrownSpot", "Healthy", "Hispa", "LeafBlast"};
 
-            switch(label[index].toString()){
-                case "BrownSpot":
-                    Binding.textDeteksi.setText("Brown Spot");
-                    Binding.textDeteksiDeskripsi.setText("Ini Brownspot");
-                case "Healthy":
-                    Binding.textDeteksi.setText("Sehat");
-                    Binding.textDeteksiDeskripsi.setText("Tanaman ini sehat");
-                case "Hispa":
-                    Binding.textDeteksi.setText("Hispa");
-                    Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit Hispa");
-                case "LeafBlast":
-                    Binding.textDeteksi.setText("Leaf Blast");
-                    Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit blas");
+            Log.d("message", "Array:" + Arrays.toString(confidences));
+
+
+            if(index==0){
+                Log.d("message", "Brown spot");
+                Binding.textDeteksi.setText("Brown Spot");
+                Binding.textDeteksiDeskripsi.setText("Ini Brownspot");
+                Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
+            }else if(index==1){
+                Log.d("message", "Sehat");
+                Binding.textDeteksi.setText("Sehat");
+                Binding.textDeteksiDeskripsi.setText("Tanaman ini sehat");
+                Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
+            }else if(index == 2){
+                Log.d("message", "Hispa");
+                Binding.textDeteksi.setText("Hispa");
+                Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit Hispa");
+                Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
+            }else if(index == 3){
+                Log.d("message", "Blas");
+                Binding.textDeteksi.setText("Leaf Blast");
+                Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit blas");
+                Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
             }
         } catch (IOException e) {
             // TODO Handle the
