@@ -33,7 +33,7 @@ import java.util.Arrays;
 
 public class Deteksi extends AppCompatActivity implements View.OnClickListener {
     ActivityDeteksiBinding Binding;
-    private Button button_kamera, button_galeri, button_deteksi;
+    private Button button_kamera, button_galeri;
     private TextView title, description;
     private ImageView imageCapture;
 
@@ -86,7 +86,8 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             captureImage = ThumbnailUtils.extractThumbnail(captureImage, dimension, dimension);
             Binding.viewImageDeteksi.setImageBitmap(captureImage);
             Bitmap resized = Bitmap.createScaledBitmap(captureImage, 224, 224, true);
-            MLModel(resized);
+            Bitmap newResized = resized.copy(Bitmap.Config.ARGB_8888,true);
+            MLModel(newResized);
         }
         if (requestCode == 101) {
 
