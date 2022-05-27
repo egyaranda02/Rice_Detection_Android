@@ -20,8 +20,10 @@ public class daftar_penyakit extends AppCompatActivity {
         Binding = ActivityDaftarPenyakitBinding.inflate(getLayoutInflater());
         setContentView(Binding.getRoot());
 
-        final String[] description = {"1","2","3"};
-        final String[] disease_name = {"1","2","3"};
+        final String[] description = {"Bercak daun coklat disebabkan oleh jamur Cochliobolus miyabeanus. Jamur ini dapat bertahan hidup dalam benih selama lebih dari empat tahun dan menyebar dari satu tanaman ke tanaman lainnya melalui spora yang ada di udara. Sisa-sisa tanaman terinfeksi yang tertinggal di lahan dan gulma adalah penyebab umum lainnya penyebaran penyakit ini. Bercak coklat dapat terjadi pada semua tahap panen, tetapi infeksi paling kritis dimulai dari tahapan akhir anakan hingga pematangan. Penyakit ini sering terjadi di lahan dengan kesalahan pengelolaan kesuburan tanah, terutama dalam hal unsur hara mikro. Pengendalian bercak coklat yang memuaskan dapat dicapai dengan menggunakan pupuk silikon.",
+                "Hispa disebabkan oleh serangga dewasa dan larva hispa padi, Dicladispa armigera. Serangga dewasa mengikis permukaan atas helai daun dan hanya menyisakan epidermis bawah. Telur diletakkan di dalam celah kecil pada daun yang lembut, umumnya ke arah ujung. Ulatnya berwarna kuning keputihan dan datar. Ulat ini makan di dalam jaringan daun dengan menggali sepanjang sumbu daun, dan kemudian menjadi kepompong. Serangga dewasa berbentuk agak persegi, panjang dan lebarnya sekitar 3-5 mm.",
+                "Penyakit blas merupakan penyakit yang disebabkan oleh jamur pylicularia grisea. Jamur ini dapat menginfeksi pada semua fase pertumbuhan tanaman padi, mulai dari fase pembibitan sampai pada fase generatif. Tanaman yang terserang penyakit blas memiliki ciri bercak coklat berbentuk belah ketupat pada daun tanaman padi. Perkembangan parah penyakit blas pada tanaman padi dapat mencapai bagian gabah dan patogennya dapat terbawa gabah sebagai patogen tular benih."};
+        final String[] disease_name = {"Bercak Daun Coklat","Hispa","Blas"};
         final int imageId[] = {R.drawable.brownspot, R.drawable.hispa, R.drawable.leafblast};
 
         ArrayList<Data> dataArrayList = new ArrayList<>();

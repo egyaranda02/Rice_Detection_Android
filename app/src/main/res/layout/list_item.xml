@@ -33,9 +33,10 @@
                     android:id="@+id/disease_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Healthy Nail"
+                    android:text="Nama Penyakit"
                     android:textSize="26sp"
                     android:textStyle="bold"
+                    android:textColor="@color/Black"
                     />
 
 
@@ -46,6 +47,7 @@
                     android:layout_height="75dp"
                     android:layout_marginTop="5dp"
                     android:text="Description"
+                    android:textColor="@color/Black"
                     />
             </LinearLayout>
 
