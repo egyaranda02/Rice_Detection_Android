@@ -116,22 +116,6 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
             tensorImage.load(image);
             ByteBuffer byteBuffer = tensorImage.getBuffer();
-//            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * 224 * 224 * 3);
-//            byteBuffer.order(ByteOrder.nativeOrder());
-//
-//            int [] intValues = new int[224 * 224];
-//            image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
-//
-//            int pixel = 0;
-//            //iterate over each pixel and extract R, G, and B values. Add those values individually to the byte buffer.
-//            for(int i = 0; i < 224; i ++){
-//                for(int j = 0; j < 224; j++){
-//                    int val = intValues[pixel++]; // RGB
-//                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
-//                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
-//                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
-//                }
-//            }
 
 
             inputFeature0.loadBuffer(byteBuffer);
@@ -160,8 +144,8 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
 
             if(index==0){
                 Log.d("message", "Brown spot");
-                Binding.textDeteksi.setText("Brown Spot");
-                Binding.textDeteksiDeskripsi.setText("Ini Brownspot");
+                Binding.textDeteksi.setText("Bercak Daun Coklat");
+                Binding.textDeteksiDeskripsi.setText("Bercak daun coklat disebabkan oleh jamur Cochliobolus miyabeanus. Jamur ini dapat bertahan hidup dalam benih selama lebih dari empat tahun dan menyebar dari satu tanaman ke tanaman lainnya melalui spora yang ada di udara. Sisa-sisa tanaman terinfeksi yang tertinggal di lahan dan gulma adalah penyebab umum lainnya penyebaran penyakit ini. Pengendalian bercak coklat yang memuaskan dapat dicapai dengan menggunakan pupuk silikon.");
                 Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
             }else if(index==1){
                 Log.d("message", "Sehat");
@@ -171,12 +155,12 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
             }else if(index == 2){
                 Log.d("message", "Hispa");
                 Binding.textDeteksi.setText("Hispa");
-                Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit Hispa");
+                Binding.textDeteksiDeskripsi.setText("Hispa disebabkan oleh serangga dewasa dan larva hispa padi, Dicladispa armigera. Serangga dewasa mengikis permukaan atas helai daun dan hanya menyisakan epidermis bawah. Telur diletakkan di dalam celah kecil pada daun yang lembut, umumnya ke arah ujung. Ulat ini makan di dalam jaringan daun dengan menggali sepanjang sumbu daun, dan kemudian menjadi kepompong.");
                 Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
             }else if(index == 3){
                 Log.d("message", "Blas");
-                Binding.textDeteksi.setText("Leaf Blast");
-                Binding.textDeteksiDeskripsi.setText("Tanaman ini terjangkit blas");
+                Binding.textDeteksi.setText("Blas");
+                Binding.textDeteksiDeskripsi.setText("Penyakit blas merupakan penyakit yang disebabkan oleh jamur pylicularia grisea. Jamur ini dapat menginfeksi pada semua fase pertumbuhan tanaman padi, mulai dari fase pembibitan sampai pada fase generatif. Tanaman yang terserang penyakit blas memiliki ciri bercak coklat berbentuk belah ketupat pada daun tanaman padi. Perkembangan parah penyakit blas pada tanaman padi dapat mencapai bagian gabah dan patogennya dapat terbawa gabah sebagai patogen tular benih.");
                 Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
             }
         } catch (IOException e) {
