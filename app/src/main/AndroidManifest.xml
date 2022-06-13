@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Deteksi"></activity>
+        <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity android:name=".Deteksi" />
         <activity android:name=".View_Penyakit" />
         <activity android:name=".daftar_penyakit" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

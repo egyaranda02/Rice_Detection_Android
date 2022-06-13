@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About">
+    <ImageView
+        android:id="@+id/banner_about"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <TextView
+        android:id="@+id/about_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TENTANG APLIKASI"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/banner_about"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/about_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Paddy Detector adalah aplikasi yang berfungsi sebagai alat bantu deteksi penyakit pada daun tanaman padi menggunakan sistem yang mengimplementasikan Deep Learning. Aplikasi ini dibuat untuk memenuhi Tugas Akhir dari pembuat aplikasi."
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:justificationMode="inter_word"
+        app:layout_constraintTop_toBottomOf="@id/about_heading"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/about_creator_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TENTANG PEMBUAT"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/about_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/about_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pembuat Aplikasi : Ahmad Egy Aranda \nNPM : 140810180043"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:justificationMode="inter_word"
+        app:layout_constraintTop_toBottomOf="@id/about_creator_heading"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/about_creator_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pembimbing 1 : Dr. Intan Nurma Yulita, MT\nPembimbing 2 : Akmal, S.Si., M.T.
+"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:justificationMode="inter_word"
+        app:layout_constraintTop_toBottomOf="@id/about_creator"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
