@@ -151,7 +151,7 @@ public class Deteksi extends AppCompatActivity implements View.OnClickListener {
                 Log.d("message", "Sehat");
                 Binding.textDeteksi.setText("Sehat");
                 Binding.textDeteksiDeskripsi.setText("Tanaman ini sehat");
-                Binding.textDeteksiDeskripsi.setVisibility(View.VISIBLE);
+                Binding.textDeteksiDeskripsi.setVisibility(View.INVISIBLE);
             }else if(index == 2){
                 Log.d("message", "Hispa");
                 Binding.textDeteksi.setText("Hispa");

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Paddy Detector</string>
+    <string name="tentang">Paddy Detector adalah aplikasi yang berfungsi sebagai alat bantu deteksi penyakit pada daun tanaman padi menggunakan sistem yang mengimplementasikan Deep Learning. Aplikasi ini dibuat untuk memenuhi Tugas Akhir dari pembuat aplikasi.</string>
+    <string name="identitas">Pembuat Aplikasi : Ahmad Egy Aranda \nNPM : 140810180043</string>
+    <string name="pembimbing">Pembimbing 1 : Dr. Intan Nurma Yulita, MT\nPembimbing 2 : Akmal, S.Si., M.T.</string>
 </resources>
